@@ -57,7 +57,7 @@
 
 ## Project Structure
 
-```plaintext
+```
 ├── main.c           # Entry point of the game
 ├── character.c      # Character management and save/load logic
 ├── character.h	     # Header for character functions
@@ -68,6 +68,7 @@
 ├── LICENSE          # MIT License
 ├── .gitignore       # Ignore compiled files
 └── README.md        # This file
+```
 
 ## License
 This project is licensed under the **MIT License** - see the LICENSE file for details.
