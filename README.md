@@ -40,7 +40,7 @@
 ## Installation
 
 1. **Clone the Repository**:
-   git clone https://github.com/<your-username>/daenyum.git
+   git clone https://github.com/PHForge/Daenyum_Text-basedRPG.git
    cd daenyum
 
 2. **Compile the Project**:
@@ -52,17 +52,17 @@
 
 ## Project Structure
 
-daenyum/
-├── main.c           # Entry point of the game
-├── character.c      # Character management and save/load logic
-├── character.h
-├── combat.c         # Combat mechanics and random events
-├── combat.h
-├── utils.c          # Utilities (banner, multilingual messages)
-├── utils.h
-├── LICENSE          # MIT License
-├── .gitignore       # Ignore compiled files
-└── README.md        # This file
+Daenyum_Text-basedRPG/
+  - main.c              # Entry point of the game
+  - character.c         # Character management and save/load logic
+  - character.h         # Header for character functions
+  - combat.c            # Combat mechanics and random events
+  - combat.h            # Header for combat functions
+  - utils.c             # Utilities (banner, multilingual messages)
+  - utils.h             # Header for utility functions
+  - LICENSE             # MIT License
+  - .gitignore          # Ignore compiled files
+  - README.md           # This file
 
 ## License
 This project is licensed under the **MIT License** - see the LICENSE file for details.
