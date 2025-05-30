@@ -5,7 +5,9 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Language](https://img.shields.io/badge/language-C-green.svg) 
 
-## Features
+<br>
+
+## Features 📋
 
 - **Retro ASCII Banner**: Displays a stylized "DAENYUM, Text-based RPG Combat by PHForge" banner at startup.
 - **Dynamic Characters**: Players and enemies are defined by a `Character` struct with attributes (name, HP, attack, defense, dodge, crit, luck).
@@ -24,40 +26,53 @@
 - **Random Events**: Unexpected events like "Divine Intervention" (revives player), "Celestial Shock" (stat boost), or "Curse" (enemy debuff).
 - **Flee Mechanism**: Option to flee combat, with success based on the luck stat.
 
-## Tech Stack
+<br>
 
-- **Language**: C
-- **Compiler**: GCC (via MinGW or Code::Blocks)
-- **Tools**: Git, Code::Blocks
-- **Key Libraries**: Standard C libraries (stdio.h, stdlib.h, time.h, locale.h)
+## System Requirements ⚙️
 
-## Prerequisites
+The following components are required to build, run, or contribute to this project:
 
-- **Compiler**: GCC (recommended via MinGW or Code::Blocks)
-- **Build Tool**: Code::Blocks or any C-compatible IDE
-- **Git**: For cloning and managing the repository
+| Component          | Requirement                              | Notes                                      |
+|--------------------|------------------------------------------|--------------------------------------------|
+| Language | C                                      | Core language used for the project         |
+| Compiler       | GCC                                      | Ensure GCC is installed (e.g., MinGW for Windows) |
+| Libraries      | Standard C Libraries (stdio.h, stdlib.h, time.h, locale.h, windows.h) | Included with standard C installations      |
+| IDE/Editor     | Code::Blocks or any C-compatible IDE/terminal | Other IDEs like VS Code or CLion can be used |
+| Version Control | Git                                     | Required to clone the repository           |
 
-## Installation
+> [!TIP]
+> For optimal setup, install GCC via [MinGW](https://www.mingw-w64.org/) on Windows or use a package manager like `apt` or `brew` on Linux/macOS to install Git and GCC.
+
+<br>
+
+## Installation </>
 
 1. **Clone the Repository**:
 	```
 	git clone https://github.com/PHForge/Daenyum_Text-basedRPG.git
-	cd daenyum
+	cd Daenyum_Text-basedRPG
 	```
 
 2. **Compile the Project**:
-	```	
-	gcc -o daenyum main.c character.c combat.c utils.c -finput-charset=UTF-8 -fexec-charset=UTF-8
+	- Windows: Use MinGW and run:
+		```	
+		gcc -o daenyum main.c character.c combat.c utils.c -finput-charset=UTF-8 -fexec-charset=UTF-8
+		```
+	- Linux/macOS: Ensure GCC is installed (`sudo apt install gcc` or `brew install gcc`) and run:
+		```	
+		gcc -o daenyum main.c character.c combat.c utils.c -finput-charset=UTF-8 -fexec-charset=UTF-8
+		```
+
+4. **Run the Game**:
+	```
+	./daenyum
 	```
 
-3. **Run the Game**:
-	```
-	./daenyum.exe
-	```
+<br>
 
-## Project Structure
+## Project Structure 🗂️
 
-```
+```bash
 ├── main.c           # Entry point of the game
 ├── character.c      # Character management and save/load logic
 ├── character.h	     # Header for character functions
@@ -70,15 +85,26 @@
 └── README.md        # This file
 ```
 
-## License
+<br>
+
+## License 🧾
+
 This project is licensed under the **MIT License** - see the LICENSE file for details.
 
-## Crédits
-Developed by PHForge. Special thanks to my wife and son for their patience and love.
+<br>
 
-## Example Output
+## Crédits ☕
+
+> Developed by PHForge. 
+> Feel free to reach out via [GitHub](https://github.com/PHForge) for feedback or collaboration ideas!
+
+> Special thanks ❤️ to my wife and son for their patience and love.
+
+<br>
+
+## Example Output 💻
+
 ```bash
-
 
       ***** **
    ******  ***
@@ -101,7 +127,6 @@ Developed by PHForge. Special thanks to my wife and son for their patience and l
 
                      Daenyum, Text-based RPG Combat by PHForge
 
-
 === Text-based RPG Combat ===
 
 1. Start adventure
@@ -109,3 +134,4 @@ Developed by PHForge. Special thanks to my wife and son for their patience and l
 3. Settings
 4. Credits
 5. Quit
+```
