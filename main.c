@@ -19,11 +19,11 @@
 #include "utils.h"
 
 int main() {
-    // Configurer les paramètres régionaux et l'encodage de la console
-    setlocale(LC_ALL, ""); // Utiliser les paramètres régionaux du système
+    // Configures the console's locale and encoding
+    setlocale(LC_ALL, ""); // Use system regional settings
     #ifdef _WIN32
-        SetConsoleOutputCP(CP_UTF8); // Configurer la console pour UTF-8
-        SetConsoleCP(CP_UTF8);      // Configurer l'entrée pour UTF-8
+        SetConsoleOutputCP(CP_UTF8); // Configures the console for UTF-8
+        SetConsoleCP(CP_UTF8);      // Configures the input for UTF-8
     #endif
 
     srand(time(NULL));

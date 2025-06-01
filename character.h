@@ -13,7 +13,7 @@ Character* create_character(const char* name, int hp, int attack, int defense, i
 void free_character(Character* character);
 void save_character(const Character* character);
 Character* load_character(void);
-void display_stats(const Character* character, int language); // Ajouté language
+void display_stats(const Character* character, int language);
 Character* create_enemy(int player_level);
 void gain_xp(Character* character, int xp, int language);
 void reset_life(Character* character);
