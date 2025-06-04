@@ -21,8 +21,8 @@ enum {
 
 int get_random_int(int min, int max);
 void clear_input_buffer(void);
-const char* get_message(int message_id, int language);
 void display_banner();
+const char* get_message(int message_id, int language);
 void display_credits(int language);
 void configure_settings(GameSettings* settings);
 

@@ -27,6 +27,40 @@ void free_character(Character* character) {
     free(character);
 }
 
+// Save the character
+void save_character(const Character* character) {
+    FILE* file = fopen("player.txt", "w");
+    if (!file) {
+        printf("Error: Could not save character.\n");
+        return;
+    }
+    fprintf(file, "%s %d %d %d %d %d %d %d %d\n",
+            character->name, character->max_hp, character->attack, character->defense,
+            character->dodge, character->crit, character->luck, character->level, character->xp);
+    fclose(file);
+}
+
+// Load the character
+Character* load_character(void) {
+    FILE* file = fopen("player.txt", "r");
+    if (!file) return NULL;
+    char name[50];
+    int max_hp, attack, defense, dodge, crit, luck, level, xp;
+    if (fscanf(file, "%49s %d %d %d %d %d %d %d %d", name, &max_hp, &attack, &defense,
+               &dodge, &crit, &luck, &level, &xp) != 9) {
+        fclose(file);
+        return NULL;
+    }
+    fclose(file);
+    Character* c = create_character(name, max_hp, attack, defense, dodge, crit, luck);
+    if (c) {
+        c->level = level;
+        c->xp = xp;
+        c->hp = c->max_hp;
+    }
+    return c;
+}
+
 // Displays character stats
 void display_stats(const Character* character, int language) {
     printf("\n");
@@ -78,36 +112,4 @@ void gain_xp(Character* character, int xp, int language) {
 //reset life after battle
 void reset_life(Character* character){
     character->hp = character->max_hp;
-}
-
-void save_character(const Character* character) {
-    FILE* file = fopen("player.txt", "w");
-    if (!file) {
-        printf("Error: Could not save character.\n");
-        return;
-    }
-    fprintf(file, "%s %d %d %d %d %d %d %d %d\n",
-            character->name, character->max_hp, character->attack, character->defense,
-            character->dodge, character->crit, character->luck, character->level, character->xp);
-    fclose(file);
-}
-
-Character* load_character(void) {
-    FILE* file = fopen("player.txt", "r");
-    if (!file) return NULL;
-    char name[50];
-    int max_hp, attack, defense, dodge, crit, luck, level, xp;
-    if (fscanf(file, "%49s %d %d %d %d %d %d %d %d", name, &max_hp, &attack, &defense,
-               &dodge, &crit, &luck, &level, &xp) != 9) {
-        fclose(file);
-        return NULL;
-    }
-    fclose(file);
-    Character* c = create_character(name, max_hp, attack, defense, dodge, crit, luck);
-    if (c) {
-        c->level = level;
-        c->xp = xp;
-        c->hp = c->max_hp;
-    }
-    return c;
 }

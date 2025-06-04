@@ -2,45 +2,6 @@
 #include "combat.h"
 #include "utils.h"
 
-// Returns a random combat location
-const char* get_random_location(int language) {
-    static const char* locations[4][4] = {
-        {"Cave", "Dungeon", "Labyrinth", "Forest"},
-        {"Grotte", "Donjon", "Labyrinthe", "For皻"},
-        {"Cueva", "Mazmorra", "Laberinto", "Bosque"},
-        {"Caverna", "Masmorra", "Labirinto", "Floresta"}
-    };
-    return locations[language][get_random_int(0, 3)];
-}
-
-// Calculates damage dealt
-int calculate_damage(Character* attacker, Character* defender, int language) {
-    if (get_random_int(0, 100) < defender->dodge) {
-        printf("\n");
-        printf("||||||||||||||||||||\n");
-        printf(get_message(MSG_DODGE, language), defender->name);
-        printf("\n||||||||||||||||||||\n");
-        return 0;
-    }
-    int damage = attacker->attack - defender->defense;
-    if (get_random_int(0, 100) < attacker->crit) {
-        damage *= 2;
-        printf("\n");
-        printf("!!!!!!!!!!!!!!!\n");
-        printf(get_message(MSG_CRIT, language));
-        printf("\n!!!!!!!!!!!!!!!\n");
-    }
-    damage += get_random_int(-5, 5);
-    if (damage < 1) damage = 1;
-    return damage;
-}
-
-// Attempts to flee
-int attempt_flee(Character* player) {
-    int flee_chance = player->luck + 20;
-    return get_random_int(0, 100) < flee_chance;
-}
-
 // Starts a combat
 void start_combat(Character* player, int language) {
     const char* location = get_random_location(language);
@@ -110,6 +71,45 @@ void start_combat(Character* player, int language) {
     free_character(enemy);
 }
 
+// Calculates damage dealt
+int calculate_damage(Character* attacker, Character* defender, int language) {
+    if (get_random_int(0, 100) < defender->dodge) {
+        printf("\n");
+        printf("||||||||||||||||||||\n");
+        printf(get_message(MSG_DODGE, language), defender->name);
+        printf("\n||||||||||||||||||||\n");
+        return 0;
+    }
+    int damage = attacker->attack - defender->defense;
+    if (get_random_int(0, 100) < attacker->crit) {
+        damage *= 2;
+        printf("\n");
+        printf("!!!!!!!!!!!!!!!\n");
+        printf(get_message(MSG_CRIT, language));
+        printf("\n!!!!!!!!!!!!!!!\n");
+    }
+    damage += get_random_int(-5, 5);
+    if (damage < 1) damage = 1;
+    return damage;
+}
+
+// Attempts to flee
+int attempt_flee(Character* player) {
+    int flee_chance = player->luck + 20;
+    return get_random_int(0, 100) < flee_chance;
+}
+
+// Returns a random combat location
+const char* get_random_location(int language) {
+    static const char* locations[4][4] = {
+        {"Cave", "Dungeon", "Labyrinth", "Forest"},
+        {"Grotte", "Donjon", "Labyrinthe", "Foret"},
+        {"Cueva", "Mazmorra", "Laberinto", "Bosque"},
+        {"Caverna", "Masmorra", "Labirinto", "Floresta"}
+    };
+    return locations[language][get_random_int(0, 3)];
+}
+
 // Triggers a random event
 void trigger_random_event(Character* player, Character* enemy, int language) {
     if (get_random_int(0, 100) > 5) return;
@@ -135,9 +135,9 @@ void trigger_random_event(Character* player, Character* enemy, int language) {
             enemy->attack -= 3;
             if (enemy->attack < 0) enemy->attack = 0;
             printf("\n");
-            printf("中中中中中中中么n");
+            printf("中中中中中中中n");
             printf(get_message(MSG_CURSE, language), enemy->name, enemy->attack);
-            printf("\n中中中中中中中么n");
+            printf("\n中中中中中中中n");
             break;
     }
 }
